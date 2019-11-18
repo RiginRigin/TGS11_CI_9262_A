@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = '';
+$config['jwt_key'] = 'MY_SECRET_KEY';
 
 /*
 |--------------------------------------------------------------------------
