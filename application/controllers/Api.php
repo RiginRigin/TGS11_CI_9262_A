@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 defined('BASEPATH') or exit('No direct script access allowed');
 use Restserver\Libraries\REST_Controller;
 header("Access-Control-Allow-Origin: *");
@@ -10,10 +11,28 @@ class Api extends REST_Controller
         parent::__construct();
         // Load these helper to create JWT tokens
         $this->load->helper(['jwt', 'authorization']);
+=======
+defined('BASEPATH') OR exit('No direct script access allowed');
+require APPPATH . 'libraries/REST_Controller.php';
+require APPPATH . 'libraries/Format.php';
+use Restserver\Libraries\REST_Controller;
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+class Api extends REST_Controller {
+    public function __construct() {
+        parent::__construct();
+        
+        // Load these helper to create JWT tokens
+        $this->load->helper(['jwt', 'authorization']); 
+>>>>>>> 6ef11477a39bb04e397ece7315a6666b33fdd46e
     }
     public function hello_get()
     {
         $tokenData = 'Hello World!';
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 6ef11477a39bb04e397ece7315a6666b33fdd46e
         // Create a token
         $token = AUTHORIZATION::generateToken($tokenData);
         // Set HTTP status code
@@ -23,6 +42,7 @@ class Api extends REST_Controller
         // REST_Controller provide this method to send responses
         $this->response($response, $status);
     }
+<<<<<<< HEAD
     public function login_post()
     {
         // Have dummy user details to check user credentials
@@ -93,3 +113,7 @@ class Api extends REST_Controller
         $this->response($response, $status);
     }
 }
+=======
+}
+/* End of file Api.php */
+>>>>>>> 6ef11477a39bb04e397ece7315a6666b33fdd46e

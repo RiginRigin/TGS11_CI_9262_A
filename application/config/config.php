@@ -23,7 +23,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+<<<<<<< HEAD
 $config['base_url'] = 'http://localhost:8080/modul11';
+=======
+$config['base_url'] = '';
+$config['jwt_key'] = 'MY_SECRET_KEY';
+>>>>>>> 6ef11477a39bb04e397ece7315a6666b33fdd46e
 
 /*
 |--------------------------------------------------------------------------

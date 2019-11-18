@@ -26,6 +26,7 @@ Class Sparepart extends REST_Controller {
                 'label'=>'merk',
                 'rules'=>'required'
             ],
+<<<<<<< HEAD
             [
                 'field'=>'amount',
                 'label'=>'amount',
@@ -66,3 +67,54 @@ Class SparepartData {
     public $merk;
     public $amount;
 }
+=======
+            );
+        }
+            // else{
+            // array_push($rule,
+            // [
+            // 'field' => 'email',
+            // 'label' => 'email',
+            // 'rules' => 'required|valid_email'
+            // ]
+            // );
+            // }
+            $validation->set_rules($rule);
+
+            if (!$validation->run()) {
+            return $this->returnData($this->form_validation->error_array(), true);
+            }
+                $sparepart = new SparepartData();
+                $sparepart->name = $this->post('name');
+                $sparepart->merk = $this->post('merk');
+                $sparepart->amount = $this->post('amount');
+                $sparepart->created_at = $this->post('created_at');
+                if($id == null){
+                $response = $this->SparepartModel->store( $sparepart);
+        }else{
+                $response = $this->SparepartModel->update( $sparepart,$id);
+            }
+            return $this->returnData($response['msg'], $response['error']);
+        }
+
+        public function index_delete($id = null){
+            if($id == null){
+            return $this->returnData('Parameter Id Tidak Ditemukan', true);
+            }
+            $response = $this->SparepartModel->destroy($id);
+            return $this->returnData($response['msg'], $response['error']);
+        }
+        public function returnData($msg,$error){
+            $response['error']=$error;
+            $response['message']=$msg;
+            return $this->response($response);
+        }
+       }
+        Class SparepartData{
+        public $name;
+        public $merk;
+        public $amount;
+        public $created_at;
+       }
+       
+>>>>>>> 6ef11477a39bb04e397ece7315a6666b33fdd46e
